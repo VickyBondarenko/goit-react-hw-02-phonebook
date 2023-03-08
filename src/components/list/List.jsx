@@ -1,17 +1,18 @@
 import PropTypes from 'prop-types';
+import css from './listStyle.module.css';
 
 export const List = ({ options, onDeleteUser }) => {
   function handleDelete(e) {
     onDeleteUser(e.target.id);
   }
   return (
-    <ul>
+    <ul className={css.list}>
       {options.map(({ id, name, number }) => (
-        <li key={id}>
+        <li className={css.item} key={id}>
           <p>
             {name}: {number}
           </p>
-          <button onClick={handleDelete} id={id} style={{ width: '60px' }}>
+          <button className={css.list_btn} onClick={handleDelete} id={id}>
             Delete
           </button>
         </li>

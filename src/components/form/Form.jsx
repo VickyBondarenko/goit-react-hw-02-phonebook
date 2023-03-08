@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
+import css from './formStyle.module.css';
 
 export default class Form extends Component {
   state = {
@@ -21,10 +22,11 @@ export default class Form extends Component {
   render() {
     return (
       <form
+        className={css.form}
         onSubmit={this.handleSabmit}
         style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
       >
-        <label>
+        <label className={css.label}>
           Name
           <input
             onChange={this.handlestateInpyt}
@@ -38,7 +40,7 @@ export default class Form extends Component {
           />
         </label>
 
-        <label>
+        <label className={css.label}>
           Number
           <input
             onChange={this.handlestateInpyt}
@@ -51,7 +53,11 @@ export default class Form extends Component {
             value={this.state.number}
           />
         </label>
-        <button type="submit" style={{ width: '100px' }}>
+        <button
+          className={css.form_btn}
+          type="submit"
+          style={{ width: '150px' }}
+        >
           Add contact
         </button>
       </form>

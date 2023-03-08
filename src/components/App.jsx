@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { List } from 'components/list/List';
 import Form from 'components/form/Form';
 import { Filter } from 'components/filter/Filter';
+import styled from 'styled-components';
 
 export class App extends Component {
   state = {
@@ -47,7 +48,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
+      <Wraper>
         <h1>Phonebook</h1>
         <Form onCheck={this.handleCheck} />
 
@@ -60,7 +61,13 @@ export class App extends Component {
           options={this.applayFilter()}
           onDeleteUser={this.handleDeleteUser}
         />
-      </div>
+      </Wraper>
     );
   }
 }
+
+const Wraper = styled.div`
+  margin-left: 50px;
+  margin-top: 50px;
+  padding: 20px 50px;
+`;
