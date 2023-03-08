@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 export default class Form extends Component {
   state = {
@@ -12,10 +13,6 @@ export default class Form extends Component {
     this.props.onCheck(this.state);
     this.setState({ id: null, name: '', number: '' });
   };
-
-  // handleCheck =()=>{
-
-  // }
 
   handlestateInpyt = e => {
     this.setState({ [e.target.name]: e.target.value, id: nanoid() });
@@ -61,3 +58,7 @@ export default class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  onCheck: PropTypes.func.isRequired,
+};

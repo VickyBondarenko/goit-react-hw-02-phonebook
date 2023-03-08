@@ -1,4 +1,9 @@
-export const List = ({ options }) => {
+import PropTypes from 'prop-types';
+
+export const List = ({ options, onDeleteUser }) => {
+  function handleDelete(e) {
+    onDeleteUser(e.target.id);
+  }
   return (
     <ul>
       {options.map(({ id, name, number }) => (
@@ -6,9 +11,16 @@ export const List = ({ options }) => {
           <p>
             {name}: {number}
           </p>
-          <button style={{ width: '60px' }}>Delete</button>
+          <button onClick={handleDelete} id={id} style={{ width: '60px' }}>
+            Delete
+          </button>
         </li>
       ))}
     </ul>
   );
+};
+
+List.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onDeleteUser: PropTypes.func.isRequired,
 };
